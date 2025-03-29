@@ -25,9 +25,9 @@
                         <p></p>
                         <p class="not_important">지난주 몇회 조회됌</p>
                         <p></p>
-                        <p class="not_important">5월 18 ~ 6월</p>
+                        <p class="not_important">5월 18 ~ 5월 28일</p>
                         <p></p>
-                        <p><span class="important">₩71000</span> /박 <span class="not_important">. 총액 ₩710000 </span></p>
+                        <p><span class="important">₩<span class="cost">71000</span></span> /박 <span class="not_important">. 총액 ₩<span class="total-cost">710000</span> </span></p>
                     </div>
                 </div>
                 <div class="lodging">
@@ -42,9 +42,9 @@
                         <p></p>
                         <p class="not_important">지난주 몇회 조회됌</p>
                         <p></p>
-                        <p class="not_important">5월 18 ~ 6월</p>
+                        <p class="not_important">5월 18 ~ 5월 28일</p>
                         <p></p>
-                        <p><span class="important">₩71000</span> /박 <span class="not_important">. 총액 ₩710000 </span></p>
+                        <p><span class="important">₩<span class="cost">71000</span></span> /박 <span class="not_important">. 총액 ₩<span class="total-cost">710000</span> </span></p>
                     </div>
                 </div>
                 <div class="lodging">
@@ -59,9 +59,9 @@
                         <p></p>
                         <p class="not_important">지난주 몇회 조회됌</p>
                         <p></p>
-                        <p class="not_important">5월 18 ~ 6월</p>
+                        <p class="not_important">5월 18 ~ 5월 28일</p>
                         <p></p>
-                        <p><span class="important">₩71000</span> /박 <span class="not_important">. 총액 ₩710000 </span></p>
+                        <p><span class="important">₩<span class="cost">71000</span></span> /박 <span class="not_important">. 총액 ₩<span class="total-cost">710000</span> </span></p>
                     </div>
                 </div>
                 <div class="lodging">
@@ -76,16 +76,42 @@
                         <p></p>
                         <p class="not_important">지난주 몇회 조회됌</p>
                         <p></p>
-                        <p class="not_important">5월 18 ~ 6월</p>
+                        <p class="not_important">5월 18 ~ 5월 28일</p>
                         <p></p>
-                        <p><span class="important">₩71000</span> /박 <span class="not_important">. 총액 ₩710000 </span></p>
+                        <p><span class="important">₩<span class="cost">71000</span></span> /박 <span class="not_important">. 총액 ₩<span class="total-cost">710000</span> </span></p>
                     </div>
                 </div>
             </div>
-            <div class="button">
-                <a href="https://www.airbnb.co.kr/s/Seoul/homes?search_mode=flex_destinations_search&category_tag=Tag%3A8661&place_id=ChIJzzlcLQGifDURm_JbQKHsEX4">더 찾아보기</a>
+            <div class = "button-container">
+                <div class="button">
+                    <a href="https://www.airbnb.co.kr/s/Seoul/homes?search_mode=flex_destinations_search&category_tag=Tag%3A8661&place_id=ChIJzzlcLQGifDURm_JbQKHsEX4">더 찾아보기</a>
+                </div>
+                    
+                <button class="button" id="plus">+</button>
+                <button class="button" id="minus">-</button>
             </div>
         </main>
     </div>
+
+    <script>
+        document.getElementById("plus").addEventListener("click", () => {
+            document.querySelectorAll(".cost").forEach((cost) => {
+                cost.innerHTML = parseInt(cost.innerHTML) + 10000;
+            });
+            document.querySelectorAll(".total-cost").forEach((total_cost) => {
+                total_cost.innerHTML = parseInt(total_cost.innerHTML) + 100000;
+            });
+        });
+
+
+        document.getElementById("minus").addEventListener("click", () => {
+            document.querySelectorAll(".cost").forEach((cost) => {
+                cost.innerHTML = parseInt(cost.innerHTML) - 10000;
+            });
+            document.querySelectorAll(".total-cost").forEach((total_cost) => {
+                total_cost.innerHTML = parseInt(total_cost.innerHTML) - 100000;
+            });
+        });
+    </script>
 </body>
 </html>
