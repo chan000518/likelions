@@ -1,0 +1,117 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 80px;
+}
+
+heading{
+    width: 100%;
+}
+
+heading h2{
+    font-size: 32px;
+    padding-bottom: 8px;
+    font-weight: 500;
+}
+heading p{
+    font-size: 18px;
+    padding-bottom: 24px;
+    font-weight: 400;
+    color: rgb(34, 34, 34)
+}
+
+.lodging_container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 24px;
+    padding-bottom: 32px;
+}
+
+.lodging_container > div{
+    width: 100%;
+    height: 100%;
+}
+
+.lodging_image {
+    width: 100%;
+    height: 285px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.favor{
+    width: 96px;
+    height: 28px;
+    background-color: white;
+    border-radius: 40px;
+    border: 1px solid white;
+    font-size: 14px;
+    padding: 4px 10px;
+    position: relative;
+    top: -280px;
+    right: -13px;
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lodging_image img {
+    width: 100%;
+    height: 285px;
+    object-fit: cover;
+}
+
+.lodging_info{
+    margin-top: 12px;
+    width: 100%;
+    font-size : 14px;
+    grid-template-columns: 3fr 1fr;
+    display: grid;
+    grid-template-rows: 19px 19px 19px 19px 25px;
+    column-gap: 8px;
+    row-gap :2px;
+}
+
+.lodging_info p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+h4{
+    font-size: 15px;
+    font-weight: 500;
+}
+.not_important{
+    color : rgb(106, 106, 106);
+}
+.important{
+    font-weight: 600;
+}
+
+.button{
+    width: 120px;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button a{
+    text-decoration: none;
+    color: black;
+}
