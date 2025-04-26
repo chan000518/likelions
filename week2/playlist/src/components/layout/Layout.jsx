@@ -5,7 +5,7 @@ export const Layout = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-20 bg-black text-white min-h-screen">
+      <div className="pt-20 bg-white text-white min-h-screen">
         <Outlet />
       </div>
     </>
