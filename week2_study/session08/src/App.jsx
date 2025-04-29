@@ -1,13 +1,16 @@
-
 import './App.css'
+import Editor from './components/Editor'
+import Header from './components/header'
+import List from './components/List'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      todoList
-    </>
+    <div className="App">
+      <Header />
+      <Editor />
+      <List />
+    </div>
   )
 }
 
