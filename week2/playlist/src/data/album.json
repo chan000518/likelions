@@ -8,27 +8,27 @@
         "composer": "Emily Harbakk"
     },
     {
-        "albumImage": "/src/assets/rebel-heart.png",
-        "releaseDate": "2025-01-13",
-        "artist": "IVE",
-        "title": "REBEL HEART",
-        "lyricist": "Nietzsche",
-        "composer": "Emily Harbakk"
+        "albumImage": "/src/assets/장풍이.png",
+        "releaseDate": "2014-11-13",
+        "artist": "장풍이",
+        "title": "우리집 강아지",
+        "lyricist": "장풍이",
+        "composer": "이승찬"
     },
     {
-        "albumImage": "/src/assets/rebel-heart.png",
-        "releaseDate": "2025-01-13",
-        "artist": "IVE",
-        "title": "REBEL HEART",
-        "lyricist": "Nietzsche",
-        "composer": "Emily Harbakk"
+        "albumImage": "/src/assets/장풍이2.jpeg",
+        "releaseDate": "2020-05-13",
+        "artist": "장풍이",
+        "title": "우리집 강아지 2",
+        "lyricist": "장풍이",
+        "composer": "이승찬"
     },
     {
-        "albumImage": "/src/assets/rebel-heart.png",
-        "releaseDate": "2025-01-13",
-        "artist": "IVE",
-        "title": "REBEL HEART",
-        "lyricist": "Nietzsche",
-        "composer": "Emily Harbakk"
+        "albumImage": "/src/assets/react.svg",
+        "releaseDate": "2015-01-13",
+        "artist": "react",
+        "title": "react",
+        "lyricist": "react",
+        "composer": "META"
     }
 ]

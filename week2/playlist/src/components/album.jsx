@@ -1,11 +1,11 @@
 // src/components/AlbumCard.jsx
 import React from "react";
 
-export const Album = ({ album }) => {
+export const Album = ({ album, onClick }) => {
   const { albumImage, releaseDate, artist, title, lyricist, composer } = album;
 
   return (
-    <div className="bg-gradient-to-r from-purple-400 to-blue-500 p-6 rounded-lg shadow w-72">
+    <div onClick={onClick} className="bg-gradient-to-r from-purple-400 to-blue-500 p-6 rounded-lg shadow w-72">
       <img
         src={albumImage}
         alt={`${title} 앨범 커버`}
