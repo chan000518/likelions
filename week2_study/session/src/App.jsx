@@ -1,8 +1,11 @@
+import { useMemo } from 'react'
 import './App.css'
 import Editor from './components/Editor'
 import Header from './components/header'
 import List from './components/List'
 import { useState, useRef} from 'react'
+import { useCallback } from 'react'
+import { createContext } from 'react'
 
 const mockData = [
   {id: 0, isDone: false, content: "리액트 공부하기", date: new Date().getTime()},
@@ -24,6 +27,9 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
+export const TodoStateContext = createContext();
+export const TodoDispatchContext = createContext();
 
 function App() {
   const [todos, setTodos] = useState(mockData);
@@ -56,7 +62,7 @@ function App() {
 //     setTodos(todos.filter((todo) => todo.id !== targetId));
 //   }
 
-  const onCreate = (content) => {
+  const onCreate = useCallback( (content) => {
     dispatch({ 
       type: 'CREATE',
       data: { 
@@ -65,20 +71,31 @@ function App() {
         content, 
         date: new Date().getTime(), 
       } });
-  };
+  }, []);;
 
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     dispatch({ type: 'UPDATE', targetId });
-  };
+  }, []);
 
-  const onDelete = (targetId) => {
+  // 리랜더링이 되도 함수가 재생성되지 않음
+  const onDelete = useCallback( (targetId) => {
     dispatch({ type: 'DELETE', targetId });
-  };
+  }, []);// 의존성 배열이 비어있으면, 최초와 언마운트 시에만 실행됨
+
+  // 메모이제이션 하여 함수 재생성을 방지
+  const memoizedDispatch = useMemo(() => {
+    return { onCreate, onUpdate, onDelete };
+  },[]); // 의존성 배열이 비어있으면, 최초와 언마운트 시에만 실행됨
+
   return (
     <div className="App">
       <Header />
-      <Editor onCreate = {onCreate}/>
-      <List todos ={todos} onUpdate = {onUpdate} onDelete={onDelete}/>
+      <TodoStateContext.Provider value={todos}>
+        <TodoDispatchContext.Provider value={{ memoizedDispatch }}>
+          <Editor  />
+          <List />
+        </TodoDispatchContext.Provider>
+      </TodoStateContext.Provider>
     </div>
   )
 }

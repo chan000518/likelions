@@ -1,8 +1,12 @@
 import "./List.css"
 import TodoItem from "./TodoItem"
-import { use, useState } from "react"
+import { useState, useMemo, } from "react"
+import { TodoStateContext } from "../App"
+import { useContext } from "react"
 
-const List = ({ todos, onUpdate ,onDelete}) => {
+const List = ({}) => {
+    const todos = useContext(TodoStateContext);
+
     const [search, setSearch] = useState("");
 
     const onChangeSearch = (e) => {
@@ -33,8 +37,7 @@ const List = ({ todos, onUpdate ,onDelete}) => {
     // }
 
     //useMemo를 사용하여 getAnalyzedData의 리랜더링을 방지
-    const { totalCount, doneCount, notDoneCount } = 
-    useMemo(() => {
+    const { totalCount, doneCount, notDoneCount } = useMemo(() => {
         console.log("getAnalyzedData 호출!"); // 함수가 리랜더링 시마다 계속 호출
         const totalCount = todos.length;
         const doneCount = todos.filter( // 필터연산 
@@ -61,7 +64,7 @@ const List = ({ todos, onUpdate ,onDelete}) => {
         <div className="todos_wrapper">
             {filteredTodos.map((todo) => {
                 return (
-                    <TodoItem onUpdate= {onUpdate } onDelete={onDelete} key={todo.id} {...todo} />
+                    <TodoItem key={todo.id} {...todo} />
                 )
             })}
         </div>
