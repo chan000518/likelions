@@ -1,9 +1,13 @@
 import './App.css'
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
-import { Home } from './pages/Home'
-import { Diary } from './pages/Diary'
-import { New } from './pages/New'
-import { NotFound } from './pages/NotFound'
+import Home from './pages/Home.jsx'
+import Diary from './pages/Diary.jsx'
+import New from './pages/New.jsx'
+import NotFound from './pages/NotFound'
+import Button from './components/Button.jsx'
+import Header from './components/Header.jsx'
+
+import { getEmotionImage } from './util/get-emotion.js'
 
 function App() {
   const nav = useNavigate();
@@ -14,12 +18,34 @@ function App() {
 
   return (
     <>
-    <div>
-      <Link to='/'>Home</Link>
-      <Link to='/new'>New</Link>
-      <Link to='/diary'>Diary</Link>
-    </div>
-    <button onClick={onClickButton}>New 페이지로 이동</button>
+      <Header 
+        title = {"Header"}
+        leftChild={<Button text={"Left"} />}
+        rightChild={<Button text={"Right"} />}
+      />
+
+      <Button 
+        text = {"123"}
+        onClick = {() => {
+          console.log("123")
+        }}
+      />
+
+      <Button 
+        text = {"123"}
+        type = {"POSITIVE"}
+        onClick = {() => {
+          console.log("123")
+        }}
+      />
+
+      <Button 
+        text = {"123"}
+        type = {"NEGATIVE"}
+        onClick = {() => {
+          console.log("123")
+        }}
+      />
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/diary/:id' element={<Diary />} />
