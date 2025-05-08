@@ -10,12 +10,20 @@ const Home = () => {
   // TODO: 최근 검색 도시(localStorage) 불러오기
   useEffect(() => {
     // localStorage.getItem()
+    const savedData = JSON.parse(localStorage.getItem('recentCities')  || '[]');
+    setRecentCities(savedData);
   }, []);
 
   // TODO: 검색 시 최근 도시 저장 + 상태 업데이트
   const handleSearch = (newCity) => {
     setCity(newCity);
 
+    const savedData = JSON.parse(localStorage.getItem('recentCities') || '[]');
+    const updatedData = [newCity, ...savedData.filter((item) => item !== newCity)].slice(0, 5);
+    
+    localStorage.setItem('recentCities', JSON.stringify(updatedData));
+
+    setRecentCities(updatedData);
     // 기존 목록에서 중복 제거 후 newCity 추가 → 5개 제한
     // localStorage.setItem()
   };
