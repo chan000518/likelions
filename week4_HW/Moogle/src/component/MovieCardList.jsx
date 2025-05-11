@@ -52,7 +52,7 @@ const MovieCardList = ({ searchWord }) => {
 
   return (
     <div className="flex">
-      <div className="w-[650px] ml-[200px]">
+      <div className="w-[650px] ml-[220px]">
         <div className="grid grid-cols-2 gap-10 mt-8">
           {movieList.map((item) => (
             <MovieCard

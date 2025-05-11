@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import SearchBar from "../component/SearchBar";
 import { useState, useEffect } from "react";
 import MovieCardList from "../component/MovieCardList";
-
+import BigLogo from "../component/BigLogo";
+import SmallLogo from "../component/SmallLogo";
 
 const Home = () => {
     const [searchWord, setSearchWord] = useState("");
@@ -35,31 +36,18 @@ const Home = () => {
     if (searchWord === "") { // 검색어가 없을 때
         return (
             <div className="flex items-center flex-col h-screen mt-32">
-                <div className="font-poppins text-[80px] font-bold text-center mb-8">
-                    <span className="text-8xl text-blue-500">M</span>
-                    <span className="text-red-500">o</span>
-                    <span className="text-yellow-500">o</span>
-                    <span className="text-blue-500">g</span>
-                    <span className="text-green-500">l</span>
-                    <span className="text-red-500">e</span>
-                </div>
+                {/* 로고 */}
+                <BigLogo/>
                 {/* 검색 바 */}
                 <SearchBar searchWord={searchWord} onSearch={ handleSearch } searchHistory={searchHistory} />
             </div>
         )}
-    else {
-        return ( // 검색어가 있을 때
+    else {  // 검색어가 있을 때
+        return ( 
             <div className="flex-col items-start h-screen">
-                <div className="flex items-center justify-start gap-5 w-screen m-5">
-                    <div onClick={ handleLogo } className="font-poppins text-[50px] font-bold text-center">
-                        <span className="text-5xl text-blue-500">M</span>
-                        <span className="text-red-500">o</span>
-                        <span className="text-yellow-500">o</span>
-                        <span className="text-blue-500">g</span>
-                        <span className="text-green-500">l</span>
-                        <span className="text-red-500">e</span>
-                    </div>
-               
+                <div className="flex items-center justify-start gap-5 w-screen m-5 ml-7">
+                    {/* 로고 */}
+                    <SmallLogo handleLogo={ handleLogo } />
                     {/* 검색 바 */}
                     <SearchBar searchWord={searchWord} onSearch={ handleSearch } searchHistory={searchHistory} />
                     
