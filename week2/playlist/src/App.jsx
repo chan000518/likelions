@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route classname="min-w-96" path="/" element={<Layout />}>
           <Route index element={<Playlist />} />
           <Route path="/top100" element={<Top100 />} />
           <Route path="/mypage" element={<MyPage />} />
